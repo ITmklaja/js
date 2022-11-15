@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM</title>
+</head>
+<body>
+    <button onclick="history.go(-1);">Wroc do poprzednij strony</button><br>
+    <button onclick="history.back(1);">Wroc do poprzednij strony</button><br>
+    <button onclick="history.forward(1);">Przejdz do nastepnej strony</button><br>
+    <button onclick="document.getElementById('phislen').innerHTML = history.length;">Ilosc elementow w historii</button><p id="phislen"></p>
+    <!--<button onclick="document.getElementById('phispre').innerHTML= history.previous;">Poprzedni link</button><p id="phispre"></p>
+    <button onclick="document.getElementById('phiscur').innerHTML= history.current;">Obecny link</button><p id="phiscur"></p>
+    <button onclick="document.getElementById('phisnex').innerHTML= history.next;">Nastepny link</button><p id="phisnex"></p> -->
+    <br>
+    <button onclick="document.getElementById('plochos').innerHTML = location.hostname;">Nazwa hosta</button><p id="plochos"></p>
+    <button onclick="document.getElementById('plocpor').innerHTML = location.port;">Numer portu</button><p id="plocpor"></p>
+    <button onclick="document.getElementById('plochre').innerHTML = location.href;">Pelen link</button><p id="plochre"></p>
+    <button onclick="document.getElementById('plochos').innerHTML = location.replace('http\://www.google.com');">Przekierowanie</button><p id="plochos"></p>
+    <br>
+    <button onclick="document.getElementById('pnavcoo').innerHTML = navigator.cookieEnabled;">Czy wlaczona jest obsluga plikow cookies</button><p id="pnavcoo"></p>
+    <button onclick="document.getElementById('pnavuse').innerHTML = navigator.userAgent;">userAgent</button><p id="pnavuse"></p>
+    <button onclick="document.getElementById('pnavjav').innerHTML = navigator.javaEnabled();">javaEnabled</button><p id="pnavjav"></p>
+    <br><br>
+    <section id="inner" style="color: gray;"><nav><ul><li>przykladowa</li><li>lista</li><li>punktowa</li></ul></nav></section>
+    <p id="doc"></p>
+    <script>
+        document.getElementById('doc').innerHTML += document.getElementById('inner').innerHTML;
+        document.getElementById('doc').innerHTML += document.getElementById('inner').textContent + "<br>";
+        document.getElementById('doc').innerHTML += document.getElementById('inner').style + "<br>";
+    </script>
+    <p id="styl">qwerty</p>
+    <script>
+        document.getElementById('styl').style.color = "blue";
+    </script>
+
+    <a href="#">jedyny link</a>
+    <p id="tagname"></p>
+
+    <script>
+        var tab = document.getElementsByTagName('a');
+        var tablen = tab.length;
+        document.getElementById('tagname').innerHTML = tab + " " + tab[0].innerHTML + ", ilosc tagow a na stronie: " + tablen;
+    </script>
+    <img>
+    <p id="classname"></p>
+
+    <script>
+        document.getElementById('classname').innerHTML += document.title + "<br>";
+        document.getElementById('classname').innerHTML += document.lastModified + "<br>";
+        document.getElementById('classname').innerHTML += document.location + "<br>";
+        var tabimg = document.images;
+        var tabimglen = tabimg.length;
+        document.getElementById('classname').innerHTML += tabimg + " " + tabimg[0] + ", ilosc zdjec a na stronie: " + tabimglen + "<br>";
+        document.getElementById('classname').innerHTML += document.bgColor + " bgcolor <br>"; 
+        var tablin = document.links;
+        var tablinlen = tablin.length;
+        document.getElementById('classname').innerHTML += tablin + " " + tablin[0] + ", ilosc linkow a na stronie: " + tablinlen + "<br>";
+        document.getElementById('classname').innerHTML += document.links.length + "<br>";
+        var tabanc = document.anchors;
+        var tabanclen = tabanc.length;
+        document.getElementById('classname').innerHTML += tabanc + " " + tabanc[0] + ", ilosc kotwic a na stronie: " + tabanclen + "<br>";
+    </script>
+
+    <section id="a">
+        <p id="b"></p>
+    </section>
+    <section id="aa">
+        <p id="bb"></p>
+        <p id="bb2"></p>
+    </section>
+    <section id="aaa">
+        <section id="bbb">
+            <p id="ccc"></p>
+        </section>
+    </section>
+
+    <br><br>
+    <p id="wezly"></p>
+    <br><br>
+    <script>
+        var child = document.getElementById('a').childNodes;
+        var childlen = child.length;
+        document.getElementById('wezly').innerHTML += "ilosc \"dzieci\" a: " + childlen + "<br>";
+        for (let i = 0; i < childlen; i++) {
+            document.getElementById('wezly').innerHTML += child[i] + "<br>"; 
+        }
+
+        document.getElementById('wezly').innerHTML += "<br>"; 
+        document.getElementById('wezly').innerHTML += document.getElementById('ccc').parentNode;
+
+        document.getElementById('wezly').innerHTML += "<br><br>"; 
+        document.getElementById('wezly').innerHTML += document.getElementById('bb').nextSibling;
+        
+        document.getElementById('wezly').innerHTML += "<br><br>"; 
+        document.getElementById('wezly').innerHTML += document.getElementById('bb').previousSibling;
+    </script>
+
+    <p id="history"></p>
+    <br><br>
+    <p id="location"></p>
+    <br><br>
+    <p id="navigator"></p>
+    <br><br>
+    <p id="document"></p>
+    <script>
+        for(i in history){
+            document.getElementById("history").innerHTML += (i + " " + history[i] + "<br>");
+        }
+
+        for(i in location){
+            document.getElementById("location").innerHTML += (i + " " + location[i] + "<br>");
+        }
+
+        for(i in navigator){
+            document.getElementById("navigator").innerHTML += (i + " " + navigator[i] + "<br>");
+        }
+
+        for(i in document){
+            document.getElementById("document").innerHTML += (i + " " + document[i] + "<br>");
+        }
+    </script>
+</body>
+</html>
