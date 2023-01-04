@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Header</h1>
+    <h1 id="header">Header</h1>
+    <h1 class="header">Header</h1>
+    <button></button>
+
+    <script>
+        // $(document).ready(function(){
+        $(function(){
+            $('h1').hide();
+            $('#header').show();
+            $('.header').show();
+            $('#header').html('New text');
+            $('.header').css({'color':'gray'});
+            $('h1:first').remove(); // :last :odd :even :eq(0)
+            $('h1:last').append(' append text'); // :last :odd :even :eq(0)
+            $('h1').eq(1).prepend('prepend text ');
+            $('h1').replace('new header');
+            var img_source = $('img').attr('src');
+            $('img').attr('src','image.jpg').
+            $('img').removeAttr('src')
+            var img_source = $('a').attr('href');
+            $('a').attr('href','www.website.com');
+            $('a').removeAttr('href');
+
+            $('div.czerwony') //pobranie divów o klasie czerwony
+            $('div p') //wszystkie p zawierające się w div
+            $('div#cnt > p') //wszystkie p mieszczące się bezpośrednio w div #cnt
+            $('p:first-of-type') //pobranie wszystkich p, które są pierwszymi elementami danego typu
+            $('img[width=100]') //pobranie wszystkich img, które mają atrybut width="100"
+            $(':checkbox ~ label') //wszystkie labele, które następują po checkboxach na danym poziomie drzewa
+        
+        });
+
+        $(function(){
+            $('button').click(function (){
+                $('h1').css({'color':'red'});
+            });
+
+            $('button').mouseover(function (){
+                $('h1').css({'color':'blue'});
+            })
+            });
+    </script>
+</body>
+</html>
